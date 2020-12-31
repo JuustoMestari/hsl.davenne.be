@@ -78,7 +78,7 @@ function Stops(props) {
                                         </Card.Content>
                                     </Card>
                                 </Grid.Column>
-                                <Grid.Column width={6}>
+                                <Grid.Column width={6} className="mapColumn">
                                     <Card className="panel">
                                         <Card.Content className="panelHeader">
                                             <Card.Header>Map</Card.Header>

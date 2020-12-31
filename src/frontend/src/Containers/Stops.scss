@@ -30,15 +30,17 @@ div.ui.card.panel {
     div.panelContent {
         @extend %flex1;
     }
-
+    @media screen and (max-width: 770px) {
+        div.mapColumn{
+            display: none;
+        }
+      }
     div.panelMapContent {
         display: flex;
         flex: 1;
-        height: 100%;
 
         div.leaflet-container {
             flex: 1;
-            
         }
     }
 }
@@ -46,5 +48,4 @@ div.ui.card.panel {
 div.gridData {
     @extend %flex1;
     margin-bottom:5px;
-    overflow: hidden;
 }

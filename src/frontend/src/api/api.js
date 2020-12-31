@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const backendAPI = axios.create({
-  baseURL: "/api",
+  baseURL: process.env.REACT_APP_BACKEND_API_ENDPOINT,
   timeout: 30000,
 });
 

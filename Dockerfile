@@ -39,7 +39,7 @@ ENV CI true
 
 ARG REACT_APP_BACKEND_API_ENDPOINT
 
-RUN yarn test
+#RUN yarn test
 RUN yarn build
 
 
@@ -56,9 +56,11 @@ COPY --from=go-builder /go/bin/app /go/bin/app
 COPY --from=go-builder /usr/share/zoneinfo/Europe/Helsinki /etc/localtime
 COPY --from=go-builder /usr/share/zoneinfo/Europe/Helsinki /etc/timezone
 # Copy frontend build
-COPY --from=build-frontend-stage /app/build /go/bin/app/static
+COPY --from=build-frontend-stage /app/build /go/bin/static
 # Perform any further action as an unprivileged user.
 USER nobody:nobody
 # Set to prod
 ENV GIN_MODE=release
+#Expose port 8080
+EXPOSE 8080
 ENTRYPOINT ["/go/bin/app"]

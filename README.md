@@ -16,11 +16,12 @@ HSL related tools.
 - Write down the id of a bus stop with the format E0000 or H0000 or V0000. The ID can be found from Reittiopas website when clicking on a stop. You can also use the name of the bus stop. If multiple stops are found, the first one is returned and displayed.  
 - Go to stop/<stop_id>  
 - Information about the bus stop is shown at the top and the zone in the upper right corner.
-- The map displays the location of the bus stop
+- The map displays the location of the bus stop (the map is hidden if the screen width is < 770px)
 - The list of the next 10 busses departure times is shown. The green rows indicate live data, the normal row are scheduled times.
 
 ## Demo
-TODO
+- [Bus stop E3242](https://hsl.davenne.be/stop/E3242)
+- [Bus stop Latokasken koulu](https://hsl.davenne.be/stop/latokasken)
 
 ## Improvement
 - Proper search for bus stops

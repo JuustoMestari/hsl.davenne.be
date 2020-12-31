@@ -5,7 +5,7 @@
     @extend %flex1;
     div.app-wrapper{
       @extend %flex1;
-      overflow: hidden;
+      //overflow: hidden;
       /* Semantic UI overrides */
       >div.ui.grid.container.main{
         width:100% !important;
