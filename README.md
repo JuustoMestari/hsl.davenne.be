@@ -27,3 +27,17 @@ HSL related tools.
 - Proper search for bus stops
 - Return multiple datasets if query matches multiple bus stops
 - Automated refresh
+
+## Docker Image build
+```console
+docker build -t hsl.davenne.be --build-arg REACT_APP_BACKEND_API_ENDPOINT=/api --no-cache .
+```
+## Docker Image Run
+```console
+docker run --name "hsl.davenne.be" --expose=8080 -d \
+    -e "HSL_GRAPH_ENDPOINT=https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql" \
+    -e "SERVER_PORT=8080" \
+    -e "API_ALLOW_ORIGIN=*" \
+    -e "STATIC_CONTENT_PATH=/go/bin/static" \
+    hsl.davenne.be:latest
+```
