@@ -1,0 +1,25 @@
+@import '../styles/common';
+//This makes sure that the main container uses
+//All the width/height available
+#root{
+    @extend %flex1;
+    div.app-wrapper{
+      @extend %flex1;
+      overflow: hidden;
+      /* Semantic UI overrides */
+      >div.ui.grid.container.main{
+        width:100% !important;
+        margin:0 !important;
+        @extend %flex1;
+        flex-direction: row;
+        >div.column.wide{
+          @extend %flex1;
+          justify-content: space-between;
+          display:flex !important;
+          flex:unset;
+          margin-left:5px;
+          margin-right:5px;
+        }
+      }
+    }
+  }

@@ -1,0 +1,9 @@
+div.modalError{
+    div.content{
+        max-height:300px;
+        overflow:auto;
+        pre{
+            white-space: pre-wrap;
+        }
+    }
+}

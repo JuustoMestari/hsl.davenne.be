@@ -1,0 +1,5 @@
+@import 'common';
+html,
+body {
+    @extend %flex1;
+}

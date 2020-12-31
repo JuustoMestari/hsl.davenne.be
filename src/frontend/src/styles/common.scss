@@ -1,0 +1,32 @@
+$semantic_green:#21ba45;
+$semantic_red:#db2828;
+$semantic_orange:#eabd8f;
+
+$mobile_width:840px;
+
+%flex1{
+    display:flex;
+    flex:1;
+    flex-flow: column;
+    overflow: auto;
+}
+
+%card-header-title{
+    color:black;
+    opacity:0.85;
+    font-size:1.5em;
+    font-weight:700;
+    line-height: 1.5em;
+    float:left;
+}
+
+%card-header-button{
+    float:right;
+}
+
+
+%text-ellipsis{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
