@@ -40,6 +40,9 @@ COPY . .
 ENV NODE_PATH src
 ENV BROWSER none
 ENV CI true
+
+ARG REACT_APP_BACKEND_API_ENDPOINT
+
 RUN yarn test
 RUN yarn build
 
