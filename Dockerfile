@@ -17,10 +17,6 @@ RUN apk add --no-cache git ca-certificates tzdata zip
   
 #Copy app
 COPY src/backend $GOPATH/src/app
-#Remove link
-RUN rm $GOPATH/src/app/common
-#Copy from pkgcommon image
-COPY --from=imgcommon-builder /tmp $GOPATH/src/app/
 
 WORKDIR $GOPATH/src/app
 #download dependencies
