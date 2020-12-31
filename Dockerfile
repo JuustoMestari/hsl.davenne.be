@@ -1,5 +1,5 @@
 # Stage 0, build-backend-stage
-FROM golang:1.14.4-alpine3.12 as go-builder
+FROM arm32v7/golang:1.14.4-alpine3.12 as go-builder
 
 ENV GOOS=linux
 # Force the go compiler to use modules
