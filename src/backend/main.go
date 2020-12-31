@@ -5,6 +5,7 @@ import (
 	"hsl-backend/tools"
 	"log"
 
+	"github.com/gin-contrib/static"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 )
@@ -19,6 +20,7 @@ func main() {
 
 	r.Use(corsMiddleware())
 	//Endpoint
+	r.Use(static.Serve("/", static.LocalFile(tools.GetEnv("STATIC_CONTENT_PATH", ""), false)))
 	r.GET("/stop/:stopid", controllers.GetBusesForStop)
 	log.Println("Waiting for requests..")
 	r.Run(port)

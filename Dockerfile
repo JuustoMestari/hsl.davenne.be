@@ -28,11 +28,11 @@ RUN go build -o /go/bin/app
 
 # Stage 1, "build-frontend-stage", based on Node.js, to build and compile the frontend
 FROM arm32v7/node:14.13-alpine3.12 as build-frontend-stage
+RUN apk add --no-cache python2 build-base
 WORKDIR /app
-COPY ./package.json .
-#RUN npm install -g yarn
-#RUN yarn --network-timeout 1000000
-COPY . .
+COPY ./src/frontend/package.json .
+RUN yarn --network-timeout 100000
+COPY ./src/frontend/ .
 ENV NODE_PATH src
 ENV BROWSER none
 ENV CI true
@@ -42,13 +42,23 @@ ARG REACT_APP_BACKEND_API_ENDPOINT
 RUN yarn test
 RUN yarn build
 
-# Stage 1, based on Nginx, to have only the compiled app, ready for production with Nginx
-FROM nginx:1.15-alpine
-RUN apk add tzdata && cp /usr/share/zoneinfo/Europe/Helsinki /etc/localtime && echo "Europe/Helsinki" >  /etc/timezone && apk del tzdata
-COPY --from=build-frontend-stage /app/build/ /usr/share/nginx/html
-# Copy the default nginx.conf provided by tiangolo/node-frontend
-COPY  ./nginx.conf /etc/nginx/conf.d/default.conf
-#COPY  /docker/.htpasswd /usr/share/nginx/html
+
+# STEP 2 build a small image
+# start from scratch
+FROM scratch
+# Import the user and group files from the first stage.
+COPY --from=go-builder /user/group /user/passwd /etc/
+# Copy certs
+COPY --from=go-builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 # Copy our static executable
 COPY --from=go-builder /go/bin/app /go/bin/app
+# Copy timezone data
+COPY --from=go-builder /usr/share/zoneinfo/Europe/Helsinki /etc/localtime
+COPY --from=go-builder /usr/share/zoneinfo/Europe/Helsinki /etc/timezone
+# Copy frontend build
+COPY --from=build-frontend-stage /app/build /go/bin/app/static
+# Perform any further action as an unprivileged user.
+USER nobody:nobody
+# Set to prod
+ENV GIN_MODE=release
 ENTRYPOINT ["/go/bin/app"]

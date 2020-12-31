@@ -25,3 +25,4 @@ TODO
 ## Improvement
 - Proper search for bus stops
 - Return multiple datasets if query matches multiple bus stops
+- Automated refresh
