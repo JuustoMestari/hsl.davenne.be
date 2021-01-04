@@ -28,6 +28,7 @@ HSL related tools.
 - Proper search for bus stops
 - Return multiple datasets if query matches multiple bus stops
 - Automated refresh
+- Proper front page for PWA
 
 ## Docker Image build
 ```console
