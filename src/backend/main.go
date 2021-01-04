@@ -21,7 +21,7 @@ func main() {
 	r.Use(corsMiddleware())
 	//Endpoint
 	r.Use(static.Serve("/", static.LocalFile(tools.GetEnv("STATIC_CONTENT_PATH", ""), false)))
-	r.Use(static.Serve("/stop", static.LocalFile(tools.GetEnv("STATIC_CONTENT_PATH", ""), false)))
+	r.Use(static.Serve("/stop/:stopid", static.LocalFile(tools.GetEnv("STATIC_CONTENT_PATH", ""), false)))
 	r.GET("/api/stop/:stopid", controllers.GetBusesForStop)
 	log.Println("Waiting for requests..")
 	r.Run(port)
