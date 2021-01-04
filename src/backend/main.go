@@ -4,8 +4,8 @@ import (
 	"hsl-backend/controllers"
 	"hsl-backend/tools"
 	"log"
-	"net/http"
 
+	"github.com/gin-contrib/static"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 )
@@ -18,14 +18,13 @@ func main() {
 	port := ":" + tools.GetEnv("SERVER_PORT", "")
 	r := gin.Default()
 
-	r.Use(corsMiddleware())
-	r.GET("/", func(c *gin.Context) {
-		c.Redirect(http.StatusMovedPermanently, "public/")
-	})
+	//r.Use(corsMiddleware())
+	r.Use(static.Serve("/", static.LocalFile(tools.GetEnv("STATIC_CONTENT_PATH", ""), false)))
 	//Endpoint
-	r.GET("/api/stop/:stopid", corsMiddleware(), controllers.GetBusesForStop)
-	r.StaticFS("/public", http.Dir(tools.GetEnv("STATIC_CONTENT_PATH", "")))
-
+	api := r.Group("/api")
+	{
+		api.GET("/stop/:stopid", corsMiddleware(), controllers.GetBusesForStop)
+	}
 	log.Println("Waiting for requests..")
 	r.Run(port)
 }

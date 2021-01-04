@@ -1,0 +1,17 @@
+div.Home{
+    >div{
+       width:100%;
+        text-align: left;
+        font-size: 30px;
+        margin:20px;
+    }
+    >form{
+        text-align: center;
+        >div.fields{
+            text-align: center;
+        }
+        button{
+            height:100%;
+        }
+    }
+}

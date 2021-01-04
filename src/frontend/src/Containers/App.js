@@ -7,6 +7,7 @@ import thunk from 'redux-thunk';
 import { createBrowserHistory } from "history";
 
 //Import containers
+import Home from 'Containers/Home';
 import Stops from 'Containers/Stops';
 
 //Import Reducer
@@ -39,6 +40,7 @@ function App() {
                 <Suspense fallback={null}>
                     <Switch>
                         <Route component={Stops} path="/stop/:stopid"/>
+                        <Route component={Home} />
                     </Switch>
                     <ModalMain/>
                     <LoadingOverlay/>

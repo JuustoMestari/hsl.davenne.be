@@ -21,8 +21,7 @@ HSL related tools.
 - The list of the next 10 busses departure times is shown. The green rows indicate live data, the normal row are scheduled times.
 
 ## Demo
-- [/stop/E3242](https://hsl.davenne.be/stop/E3242)
-- [/stop/latokasken](https://hsl.davenne.be/stop/latokasken)
+A few examples are available here : https://hsl.davenne.be
 
 ## Improvement
 - Proper search for bus stops
