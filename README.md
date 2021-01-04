@@ -5,6 +5,7 @@ HSL related tools.
 ## Backend
 - Go
 - GinGonic web framework : https://github.com/gin-gonic/gin
+- GrapQL API : https://digitransit.fi/en/developers/apis/1-routing-api/stops/
 - code in src/backend
 
 ## Frontend
