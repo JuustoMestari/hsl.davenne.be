@@ -23,10 +23,9 @@ func main() {
 		c.Redirect(http.StatusMovedPermanently, "public/")
 	})
 	//Endpoint
-	//r.StaticFS("/", static.LocalFile(tools.GetEnv("STATIC_CONTENT_PATH", ""), false))
+	r.GET("/api/stop/:stopid", corsMiddleware(), controllers.GetBusesForStop)
 	r.StaticFS("/public", http.Dir(tools.GetEnv("STATIC_CONTENT_PATH", "")))
-	//r.Use(static.Serve("/stop/:stopid", static.LocalFile(tools.GetEnv("STATIC_CONTENT_PATH", ""), false)))
-	r.GET("/api/stop/:stopid", controllers.GetBusesForStop)
+
 	log.Println("Waiting for requests..")
 	r.Run(port)
 }
