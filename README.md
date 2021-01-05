@@ -15,7 +15,7 @@ HSL related tools.
 
 ## Usage
 - Write down the id of a bus stop with the format E0000 or H0000 or V0000. The ID can be found from Reittiopas website when clicking on a stop. You can also use the name of the bus stop. If multiple stops are found, the first one is returned and displayed.  
-- Go to stop/<stop_id>  
+- Go to stop/<stop_id>  or use the textfield in the App's root.
 - Information about the bus stop is shown at the top and the zone in the upper right corner.
 - The map displays the location of the bus stop (the map is hidden if the screen width is < 770px)
 - The list of the next 10 busses departure times is shown. The green rows indicate live data, the normal row are scheduled times.
