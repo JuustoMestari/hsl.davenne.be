@@ -1,8 +1,8 @@
 
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
-import {Link,useHistory} from "react-router-dom";
-import {Form,Button} from "semantic-ui-react";
+import {Link} from "react-router-dom";
+import {Form} from "semantic-ui-react";
 
 import './Home.scss';
 
