@@ -14,7 +14,7 @@ function Home(props) {
     return(
         <div className="Home">
             <div>Bus Stop E3242 : <Link to="/stop/E3242">/stop/E3242</Link></div>
-            <div>Bus Stop Latokasken koulu : <Link to="/stop/E3242">/stop/latokasken</Link></div>
+            <div>Bus Stop Latokasken koulu : <Link to="/stop/latokasken">/stop/latokasken</Link></div>
             <div>
                 <Form>
                     <Form.Group>
